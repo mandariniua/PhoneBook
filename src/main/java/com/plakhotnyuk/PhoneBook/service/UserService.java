@@ -14,15 +14,19 @@ public class UserService {
 	
 	
 	public void saveUser(User user) {
-        userDao.add(user);
+        userDao.save(user);
     }
 	
-	public User findById(int id) {
-        return userDao.findById(id);
+	public User findByUsername(String username){
+		return userDao.findByUsername(username);
+	}
+	
+	public User loginUser(String username, String password) {
+        User user = this.findByUsername(username);
+        if (user != null && user.getPassword().equals(password)) {
+            return user;
+        }
+        return null;
     }
 	
-	public User findByUsername(String username) {
-        return userDao.findByUsername(username);
-    }
-
 }

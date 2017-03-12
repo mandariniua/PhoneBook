@@ -36,8 +36,8 @@
  
     <div>
         <label>FIO: </label>
-        <form:input class="form-control" type="text" path="firstName"/>
-        <form:errors path="firstName" cssClass="error"/>
+        <form:input class="form-control" type="text" path="fio"/>
+        <form:errors path="fio" cssClass="error"/>
     </div>
     <div style="margin: 20px 10px 0 10px ">
         <input class="btn btn-primary btn-lg" type="submit" value="Submit">

@@ -38,11 +38,6 @@ public class UserController {
         return "redirect:/user/" + user.getUsername();
     }
 	
-	@RequestMapping(value = "/{userId}")
-    public String getUserProfile(@PathVariable String userId, Map<String, Object> model) {
-        User user = userService.findByUsername(userId);
-        model.put("user", user);
-        return "user/view";
-    }
+	
 
 }

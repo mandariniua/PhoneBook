@@ -4,8 +4,7 @@ import com.plakhotnyuk.PhoneBook.bean.User;
 
 public interface UserDAO {
 	
-	public void add(User user);
-	public User findById(int id);
+	public void save(User user);
 	public User findByUsername(String username);
 
 }

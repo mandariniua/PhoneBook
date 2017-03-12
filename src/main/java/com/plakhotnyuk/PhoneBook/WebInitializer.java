@@ -4,10 +4,10 @@ import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import com.plakhotnyuk.PhoneBook.AppConfig;
-import com.plakhotnyuk.PhoneBook.SecurityConfig;
 
 @Order
-public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class WebInitializer extends 
+		AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {

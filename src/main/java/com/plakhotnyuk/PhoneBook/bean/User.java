@@ -1,10 +1,18 @@
 package com.plakhotnyuk.PhoneBook.bean;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "user")
@@ -15,7 +23,14 @@ public class User {
 	private int id;
 	
 	private String username;
+	private String password;
 	private String fio;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_userprofile",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "userprofile_id")})
+    private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
 	
 	public User(int id, String username, String fio) {
 		this.id = id;
@@ -50,6 +65,7 @@ public class User {
 	public void setFio(String fio) {
 		this.fio = fio;
 	}
+	
 
 	@Override
 	public int hashCode() {
@@ -84,6 +100,26 @@ public class User {
 			return false;
 		return true;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Set<UserProfile> getUserProfiles() {
+		return userProfiles;
+	}
+
+	public void setUserProfiles(Set<UserProfile> userProfiles) {
+		this.userProfiles = userProfiles;
+	}
+	
+	
+	
+	
 	
 	
 	
