@@ -67,6 +67,4 @@ public class ContactDAOImpl implements ContactDAO {
 		return null;
 		
 	}
-	
-
 }
